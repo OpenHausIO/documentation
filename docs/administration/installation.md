@@ -14,36 +14,41 @@ The purpose of this installation instrucations is to give you a "ready to use" a
 > If you use a Debian/Ubuntu based distro (or other) please adapt the provided commands
 
 ### Prepare the Host
-1) First create a directory where the OpenHaus backend is stored
+Install needed software:
 ```sh
+yum install -y wget curl tar pwgen uuid vim
+```
+
+1) First create a directory where the OpenHaus backend is stored
+```bash
 mkdir /opt/OpenHaus/
 ```
 
 2) Download & extract the latest OpenHaus release from GitHub
-```sh
+```bash
 wget "https://github.com/OpenHausIO/backend/releases/download/v1.0.0/backend-v1.0.0.tgz"
 tar -zxvf -C /opt/OpenHaus/backend-v1.0.0 backend-v1.0.0.tgz
 ```
 
 3) Install npm dependencies
-```sh
+```bash
 cd /opt/OpenHaus/backend-v1.0.0
 NODE_ENV=production npm install
 ```
 A quick test with `npm start` should show something like that:
-```sh
+```bash
 Starting OpenHaus vX.X.X...
 ...
 ```
 The error message is fine, since we need to configure some [environment variables](configuration.md).
 
 4) Create a symlink to link the latest version to `/opt/OpenHaus/backend`
-```sh
-ln -s /opt/OpenHaus/backend /opt/OpenHaus/backend-v1.0.0
+```bash
+ln -s /opt/OpenHaus/backend-v1.0.0 /opt/OpenHaus/backend
 ```
 
 5) Create a systemd unit file, to run the backend after reboots
-```
+```systemd
 cat << EOF > /lib/systemd/system/open-haus.service
 [Unit]
 Description=OpenHaus SmartHome/IoT backend
@@ -54,6 +59,7 @@ After=network.target
 WorkingDirectory=/opt/OpenHaus/backend
 #Environment=DATABASE_HOST=127.0.0.1
 #Environment=DATABASE_PORT=27017
+Environment=NODE_ENV=production
 Environment=VAULT_MASTER_PASSWORD=<password>
 Environment=UUID=<uuid:v4>
 Type=simple
@@ -73,23 +79,23 @@ EOF
 See [configuration](configuration.md) for more details about environment variables & configuraiton possibilites.
 
 Reload the systemd deamon to detect the new file
-```sh
+```bash
 systemctl daemon-reload
 ```
 
 Enable & start the backend
-```
+```bash
 systemctl enable --now open-haus
 systemctl status open-haus
 ```
 
 6) Verify the installation
-```sh
+```bash
 curl -v http://127.0.0.1:8080/api/
 ```
 With a simple `curl` we can verify that the backend is up & running:
 
-```sh
+```bash
 ...
 ```
 

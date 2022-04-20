@@ -8,6 +8,24 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+
+  <link rel="stylesheet" href="//unpkg.com/docsify-accordion/src/style.css">
+  <style>
+    a.source-code {
+      color: inherit;
+      text-decoration: inherit;
+    }
+
+    h4 {
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+
+    ul {
+      margin-top: 5px;
+    }
+  </style>
+
 </head>
 
 <body>
@@ -18,6 +36,15 @@
       repo: "https://github.com/OpenHausIO/",
       loadSidebar: true,
       loadNavbar: true,
+      pagination: {
+        previousText: "Previous",
+        nextText: "Next",
+        crossChapter: false,
+        crossChapterText: false,
+      },
+      'flexible-alerts': {
+        style: 'flat'
+      },
       plugins: [(hook) => {
 
         var footer = [
@@ -52,6 +79,16 @@
   </script>
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+
+  <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-json.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-bash.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-systemd.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-nginx.min.js"></script>
+
+  <script src="//unpkg.com/docsify-plugin-flexible-alerts"></script>
+  <script src="//unpkg.com/docsify-accordion/src/index.js"></script>
+
 </body>
 
 </html>

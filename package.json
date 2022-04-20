@@ -4,8 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "start": "npx docsify serve docs",
+    "fetch:backend": "cd tmp && git clone https://github.com/OpenHausIO/backend.git",
+    "fetch:frontend": "cd tmp && git clone https://github.com/OpenHausIO/frontend.git",
+    "fetch": "npm run fetch:frontend && npm run fetch:backend"
   },
   "author": "Marc Stirner <marc.stirner@open-haus.io>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "docsify-cli": "^4.4.4",
+    "glob": "^8.0.1"
+  },
+  "devDependencies": {
+    "comment-parser": "^1.3.1",
+    "grunt": "^1.5.2",
+    "mustache": "^4.2.0"
+  }
 }

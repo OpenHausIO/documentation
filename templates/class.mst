@@ -1,0 +1,104 @@
+<div class="mb-0">
+    🔗 <a class="source-code" target="_blank"
+        href="https://github.com/OpenHausIO/backend/blob/dev/components/devices/class.device.js">{{filename}}</a>
+</div>
+<hr style="margin: 0 !important" />
+
+<!-- CLASS -->
+
+<!-- GENERAL -->
+## `class` {{className}} {{#extends}} `extends` {{#link}} [{{{name}}}]({{{link}}}) {{/link}}{{^link}} {{name}} {{/link}} {{/extends}}
+### Description:
+{{{description}}}
+<!-- GENERAL -->
+
+<!-- PARAMETER -->
+{{#parameter.length}}
+#### Parameter:
+| Parameter | Type       | Description    |
+| :-------- | :--------- |:------------- |
+{{#parameter}}
+| {{name}} | `{{type}}` |  {{{description}}} |
+{{/parameter}}
+{{/parameter.length}}
+<!-- PARAMETER -->
+
+<!-- PROPERTIES -->
+{{#properties.length}}
+#### Properties:
+| Name | Type | Description |
+| :---- | :-------- | :----------- |
+{{#properties}}
+| {{name}} | `{{type}}` | {{{description}}} |
+{{/properties}}
+{{/properties.length}}
+<!-- PROPERTIES -->
+
+<!-- EVENTS -->
+{{#events.length}}
+#### Events:
+    | Name | Description |
+    | :---- | :----------- |
+    {{#events}}
+    | {{name}} | {{description}} |
+    {{/events}}
+{{/events.length}}
+<!-- EVENTS -->
+
+<!-- EXAMPLES -->
+{{#examples.length}}
+#### Examples:
+    {{#examples}}
+        {{{.}}}
+    {{/examples}}
+{{/examples.length}}
+<!-- EXAMPLES -->
+
+<!-- LINKS -->
+{{#links.length}}
+#### See:
+    {{#links}}
+- [{{{name}}}]({{{href}}})<br />
+    {{/links}}
+{{/links.length}}
+<!-- LINKS -->
+
+<!-- CLASS -->
+
+
+
+<!-- METHODS -->
+{{#methods.length}}
+### Methods:
+{{#methods}}
+#### .{{name}}({{args}}); {{#static}} `static` {{/static}}
+
+| Parameter | Type       | Description    |
+| :-------- | :--------- |:------------- |
+{{#params}}
+| {{name}} | `{{type}}` |  {{{description}}} |
+{{/params}}
+
+{{description}}
+
+*Returns* {{#returns.type}} `{{returns.type}}` {{/returns.type}} {{^returns.type}} `undefined` {{/returns.type}}  {{{returns.description}}}
+
+{{#examples.length}}
+##### Examples
+{{#examples}}
+    {{{.}}}
+{{/examples}}
+{{/examples.length}}
+
+<!-- LINKS -->
+{{#links.length}}
+##### See:
+    {{#links}}
+- [{{{name}}}]({{{href}}})<br />
+    {{/links}}
+{{/links.length}}
+<!-- LINKS -->
+
+{{/methods}}
+{{/methods.length}}
+<!-- METHODS -->

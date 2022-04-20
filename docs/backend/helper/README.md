@@ -1,0 +1,1 @@
+The helper folder containes scripts that should make development easier & if possible to avoid including big libraries/modules such as `lodash`, `underscore`, `async`, `bluebird`, `request`, etc.
