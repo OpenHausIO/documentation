@@ -1,78 +1,166 @@
 <div class="mb-0">
-🔗 <a class="source-code" target="_blank" href="https://github.com/OpenHausIO/backend/blob/dev/system/middleware.js">middleware.js</a>
+    🔗 <a class="source-code" target="_blank"
+        href="https://github.com/OpenHausIO/backend/blob/dev&#x2F;system&#x2F;middleware.js">middleware.js</a>
 </div>
 <hr style="margin: 0 !important" />
 
+<!-- CLASS -->
 
-## `class` Middleware
+<!-- GENERAL -->
+## `class` Middleware 
 ### Description:
-This class allows to create a middleware pattern, like `express`, `koa` & `connect`.
+
+Implementation of the middleware pattern you can find in connect/express.
+It can be used "standalone" in your own code or is found in components with a namespace wrapper.
+
+<!-- GENERAL -->
+
+<!-- PARAMETER -->
+#### Parameter:
+| Parameter | Type       | Description    |
+| :-------- | :--------- |:------------- |
+| obj | `Object` |  Optional <this> scope for middleware functions added with `.use` |
+<!-- PARAMETER -->
+
+<!-- PROPERTIES -->
+#### Properties:
+| Name | Type | Description |
+| :---- | :-------- | :----------- |
+| __obj | `Object` | <this> scope for middleware functions |
+<!-- PROPERTIES -->
+
+<!-- EVENTS -->
+<!-- EVENTS -->
+
+<!-- EXAMPLES -->
+#### Examples:
+        
+```js
+const middleware = new Middleware();
+
+middleware.use((data, next) => {
+  console.log("use(); 1", data);
+  next();
+});
+
+middleware.use((data, next) => {
+  data.foo = "YEEEHAAA";
+  console.log("use(); 2", data);
+  next();
+});
+
+middleware.use((data, next) => {
+  console.log("use(); 3", data);
+  next();
+});
+
+middleware.start({bar: true}, (obj) => {
+  console.log("Chain done", obj);
+});
+```
+
+<!-- EXAMPLES -->
+
+<!-- LINKS -->
+#### See:
+- [Hooks](/backend/system/hooks.js)<br />
+- [https://github.com/senchalabs/connect#use-middleware](https://github.com/senchalabs/connect#use-middleware)<br />
+- [https://expressjs.com/en/guide/using-middleware.html](https://expressjs.com/en/guide/using-middleware.html)<br />
+<!-- LINKS -->
+
+<!-- CLASS -->
 
 
-### Properties:
-| Name    | Type       | Default | Description                                                                                                 |
-| ------- | ---------- | ------- | ----------------------------------------------------------------------------------------------------------- |
-| __obj   | `Object`   | `this`  | Optional `this` scope to be used in middleware functions                                                    |
-| catcher | `Function` | `null`  | If set to a function, this will be called when somewhere the middleware stack a next function is "rejected" |
 
-
-
+<!-- METHODS -->
 ### Methods:
-##### .use(cb)
-| Parameter | Type       | Description                                     |
-| :-------- | :--------- | :---------------------------------------------- |
-| `cb`      | `Function` | Middleware function to be executed in the stack |
+#### .start(); 
 
-Add a function to the middleware stack which is executed when `.start` is called and no previous executed method as thrown a error or passed one as first argument to the `next()` function
+| Parameter | Type       | Description    |
+| :-------- | :--------- |:------------- |
 
-*Returns*: `undefined`
 
-Example:
+Start/execute the middleware stack 
 
+
+*Returns*   `undefined`   
+
+##### Examples
+    
 ```js
-.use((A, B, C, next) => {
-
-    // do something with the arguments, or not.
-    // if ready, dont forget to call next!
-    next();
-
+start(Date.now(), {foo: "bar", baz: true}, (ts, obj) => {
+  console.log(ts, obj);
 });
 ```
 
-##### .start(...args, cb)
-| Parameter | Type       | Description                                                |
-| :-------- | :--------- | :--------------------------------------------------------- |
-| `...args` | `Any`      | As much arguments you want to pass to the middleware stack |
-| `cb`      | `Function` | Final callback with (possible) modified arguments          |
-
-Execute the callback stack.
-
-*Returns*: `undefined`
-
-Example:
-
+    
 ```js
-.start("A", { B:true }, Date.now() (A, B, C) => {
-    // do what ever you want here
-    // A, B & C are possible not the same
+start("A", "B", "C", (a, b, c) => {
+  console.log(a, b, c);
 });
 ```
 
-##### .catch(cb)
-| Parameter | Type       | Description                                                    |
-| :-------- | :--------- | :------------------------------------------------------------- |
-| `cb`      | `Function` | A function that catches the error passed to a `.next` function |
+<!-- LINKS -->
+<!-- LINKS -->
 
-Execute the callback stack.
+#### .use(fn); 
 
-*Returns*: `undefined`
+| Parameter | Type       | Description    |
+| :-------- | :--------- |:------------- |
+| fn | `Function` |  Callback function |
 
-Example:
 
+Add a callback function to middleware stack.
+Last parameter passed to callback is allways a "next" function.
+The "next" function takes as first argument a Error, or null/undefined.
+Any other arguments passed to next, override the arguments for the next stack callback
+
+
+*Returns*   `undefined`   
+
+##### Examples
+    
 ```js
-.catch((err) => {
-    // somewhere in the middleware stack
-    // a error instnace was passed to `.next()`
-    console.error(err);
+use((next) => {
+   setTimeout(next, 1000);
 });
 ```
+
+    
+```js
+// This override argument "B" and keeps A&C untouched
+// B argument in the next callback function is now a new object with the properties of B (shallow copy)
+use((A, B, C, next) => {
+   next(null, A, {...B});
+});
+```
+
+<!-- LINKS -->
+<!-- LINKS -->
+
+#### .catch(fn); 
+
+| Parameter | Type       | Description    |
+| :-------- | :--------- |:------------- |
+| fn | `Function` |  Callback function |
+
+
+Set a handler for error passed to a next function
+Stack execution gets aborted, passed callback function executed, 
+with error as first argument passed from "next" call
+
+
+*Returns*   `undefined`   
+
+##### Examples
+    
+```js
+catch((err) => {
+  console.log(err);
+});
+```
+
+<!-- LINKS -->
+<!-- LINKS -->
+
+<!-- METHODS -->

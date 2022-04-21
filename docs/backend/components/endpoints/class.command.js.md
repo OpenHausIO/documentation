@@ -1,6 +1,6 @@
 <div class="mb-0">
     🔗 <a class="source-code" target="_blank"
-        href="https://github.com/OpenHausIO/backend/blob/dev/components/devices/class.device.js">class.command.js</a>
+        href="https://github.com/OpenHausIO/backend/blob/dev&#x2F;components&#x2F;endpoints&#x2F;class.command.js">class.command.js</a>
 </div>
 <hr style="margin: 0 !important" />
 
@@ -44,6 +44,47 @@ Single command
 <!-- EVENTS -->
 
 <!-- EXAMPLES -->
+#### Examples:
+        
+```json
+{
+    _id: "604a75e6eb5de037846df24c",
+    name: "Power On",                           // Human redable
+    alias: "POWER_ON",                          // Something you can easy reminder, e.g for register handling callbacks
+    //identifier: "1",                            // Something your devices sets/needs 
+    payload: "PWR01",                           // Payload that gets send raw to the device
+    description: "",                            // should be self-explanatory]
+    interface: "603fe5d18791152879a9babd"
+}, {
+    _id: "604a75e6eb5de037846df24d",
+    name: "Power Off",                          // Human redable
+    alias: "POWER_OFF",                         // Something you can easy reminder, e.g for register handling callbacks
+    //identifier: "2",                            // Something your devices sets/needs 
+    payload: "PWR00",                           // Payload that gets send raw to the device
+    description: "",                            // should be self-explanatory  
+    interface: "603fe5d18791152879a9babd"
+}, {
+    _id: "60546eaff7d8a2b752330b37",
+    name: "Master Volume",       // Human redable
+    alias: "MASTER_VOLUME",      // Something you can easy reminder, e.g for register handling callbacks
+    //identifier: "4",        // Something your devices sets/needs 
+    payload: "MVL${v}",       // Payload that gets send raw to the device
+    description: "",
+    params: [{
+        key: "v",
+        min: 0,
+        max: 100,
+        default: 35
+    }],
+    interface: "603fe5d18791152879a9babd"
+}, {
+    _id: "604a75e6eb5de037846df24e",
+    name: "Mute (Toggle)",
+    //alias: "",
+    payload: "AMTTG",
+    interface: "603fe5d18791152879a9babd"
+}
+  ```
 <!-- EXAMPLES -->
 
 <!-- LINKS -->

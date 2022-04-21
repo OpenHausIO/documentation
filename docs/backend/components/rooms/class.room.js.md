@@ -1,6 +1,6 @@
 <div class="mb-0">
     🔗 <a class="source-code" target="_blank"
-        href="https://github.com/OpenHausIO/backend/blob/dev/components/devices/class.device.js">class.room.js</a>
+        href="https://github.com/OpenHausIO/backend/blob/dev&#x2F;components&#x2F;rooms&#x2F;class.room.js">class.room.js</a>
 </div>
 <hr style="margin: 0 !important" />
 

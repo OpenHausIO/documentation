@@ -1,134 +1,144 @@
 <div class="mb-0">
-🔗 <a class="source-code" target="_blank" href="https://github.com/OpenHausIO/backend/blob/dev/system/component/class.component.js">class.component.js</a>
+    🔗 <a class="source-code" target="_blank"
+        href="https://github.com/OpenHausIO/backend/blob/dev&#x2F;system&#x2F;component&#x2F;class.component.js">class.component.js</a>
 </div>
 <hr style="margin: 0 !important" />
 
+<!-- CLASS -->
 
-## `class` COMPONENT `extends` [COMMON](backend/system/component/class.common.js.md)
+<!-- GENERAL -->
+## `class` COMPONENT  `extends`  [COMMON](backend/system/component/class.common.js)  
+### Description:
+
+Parent class for components which provides hookable, event emitting methods:
+- add
+- get
+- update
+- remove
+- find
+
+<!-- GENERAL -->
+
+<!-- PARAMETER -->
+<!-- PARAMETER -->
+
+<!-- PROPERTIES -->
+#### Properties:
+| Name | Type | Description |
+| :---- | :-------- | :----------- |
+| items | `Array` | Store where instance of items are keept |
+| collection | `Object` | MongoDB collection instance |
+| schema | `Object` | Joi Object schema which is extend by a timestamp object: |
+| timestamps | `Object` | Timestamps |
+| timestamps.created | `Number` | Set to `Date.now()` when a item is created/added |
+| timestamps.updated | `Number` | Set to `Date.now()` when a item is updated |
+<!-- PROPERTIES -->
+
+<!-- EVENTS -->
+#### Events:
+| Name | Description |
+| :---- | :----------- |
+| add | When function has completed |
+| get | When function has completed |
+| remove | When function has completed |
+| update | When function has completed |
+| find | When function has completed |
+<!-- EVENTS -->
+
+<!-- EXAMPLES -->
+<!-- EXAMPLES -->
+
+<!-- LINKS -->
+#### See:
+- [https://mongodb.github.io/node-mongodb-native/3.7/api/Db.html#collection](https://mongodb.github.io/node-mongodb-native/3.7/api/Db.html#collection)<br />
+- [https://joi.dev/api/?v=17.6.0#object](https://joi.dev/api/?v=17.6.0#object)<br />
+<!-- LINKS -->
+
+<!-- CLASS -->
 
 
-### Properties:
-| Name       | Type    | Default | Description                                                                                                                                         |
-| ---------- | ------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| items      | `Array` | `[]`    | Contains item instance which are created from components, e.g. [`C_ROOMS`](backend/components/rooms/) or [`C_DEVICES`](backend/components/devices/) |
-| collection |         |         | MongoDB [collection](https://mongodb.github.io/node-mongodb-native/3.7/api/Db.html#collection) instance                                             |
-| schema     |         |         | Joi schema [object](https://joi.dev/api/?v=17.6.0#object)                                                                                           |
 
-
-### Events:
-| Name   | Description                                                                   |
-| ------ | ----------------------------------------------------------------------------- |
-| add    | Fired when a new item is succesfull added                                     |
-| get    | When a item is fetched via the get method or directly from the `.items` array |
-| find   | Emitted when the `.find()` method was called                                  |
-| update | Fired after the `.update()` method is done                                    |
-| remove | Emitted after the `.remove()` method has completed successful                 |
-
-
+<!-- METHODS -->
 ### Methods:
-##### .add(data[, cb]);
-- `data` {Object} Data that matches the item schema
-- `cb` {Function} Optional callback.
+#### .add(data); 
 
-Add a new item to the items array, which trigger pre/post hooks & emits `add` event when completed.
-
-*Returns*: `Promise` | `undefined`
-
-**Example**:
-
-```js
-.add({
-    foo: "bar",
-    baz: true,
-    i: 10
-}, (err, data) => {
-    console.log(err || data);
-});
-```
-
-##### .get(_id[, cb]);
-| Parameter | Type       | Description                                                                                         |
-| :-------- | :--------- | :-------------------------------------------------------------------------------------------------- |
-| `_id`     | `String`   | MongoDB [ObjectID](https://mongodb.github.io/node-mongodb-native/3.7/api/ObjectID.html) as `String` |
-| `cb`      | `Function` | Optional callback                                                                                   |
-
- 
-Get a item from the `.items` array with matching `_id`.<br />
-If no item was a found, a error is returned.
-
-*Returns*: `Promise` | `undefined`
-
-**Example**:
-
-```js
-.get("625c8b8cdd159bf4a110f55d", (err, item) => {
-    console.log(err || item);
-});
-```
+| Parameter | Type       | Description    |
+| :-------- | :--------- |:------------- |
+| data | `Object` |  Object that matches the component schema |
 
 
-##### .find(query[, cb]);
-| Parameter | Type       | Description                       |
-| :-------- | :--------- | :-------------------------------- |
-| `query`   | `Object`   | Data that matches the item schema |
-| `cb`      | `Function` | Optional callback.                |
+Adds a new item that matches the component schema
 
 
-Find a item in the items array with matching key/value pairs.
-
-*Returns*: `Promise` | `undefined`
-
-**Example**:
-
-```js
-.find({
-    foo: "bar",
-    baz: true
-}).then(console.log).catch(consle.error);
-```
+*Returns*   `undefined`   
 
 
-##### .update(_id, data[, cb]);
-| Parameter | Type       | Description                                                                                         |
-| :-------- | :--------- | :-------------------------------------------------------------------------------------------------- |
-| `_id`     | `String`   | MongoDB [ObjectID](https://mongodb.github.io/node-mongodb-native/3.7/api/ObjectID.html) as `String` |
-| `data`    | `Object`   | Partial data to be set on the item                                                                  |
-| `cb`      | `Function` | Optional callback.                                                                                  |
+<!-- LINKS -->
+<!-- LINKS -->
+
+#### .get(_id); 
+
+| Parameter | Type       | Description    |
+| :-------- | :--------- |:------------- |
+| _id | `String` |  Item ObjectId as string (<._id>) |
 
 
-Update a existing item instance.
-
-*Returns*: `Promise` | `undefined`
-
-**Example**:
-
-```js
-.update("625c8d19b566fb64aab13383", {
-    foo: "mimimi",
-    baz: false
-}).then(console.log).catch(consle.error);
-```
+Returns a item that matches the <_id> property
 
 
-##### .remove(_id[, cb]);
-| Parameter | Type       | Description                                                                                         |
-| :-------- | :--------- | :-------------------------------------------------------------------------------------------------- |
-| `_id`     | `String`   | MongoDB [ObjectID](https://mongodb.github.io/node-mongodb-native/3.7/api/ObjectID.html) as `String` |
-| `cb`      | `Function` | Optional callback.                                                                                  |
+*Returns*   `undefined`   
 
 
-Item to be removed from the database & `.items` array.
-The returned value/object is the previous existed item.
+<!-- LINKS -->
+<!-- LINKS -->
 
-*Returns*: `Promise` | `undefined`
+#### .remove(_id); 
 
-**Example**:
+| Parameter | Type       | Description    |
+| :-------- | :--------- |:------------- |
+| _id | `String` |  Removes item with matching ObjectId as string (<._id>) |
 
-```js
-try {
-    let item = await component.remove("625c8dbdd753054a4abc4365");
-    console.log("Item removed", item);
-} catch(err) {
-    console.error(err);
-}
-```
+
+Removes a item from the database and the `.items` array
+
+
+*Returns*   `undefined`   
+
+
+<!-- LINKS -->
+<!-- LINKS -->
+
+#### .update(_id, data); 
+
+| Parameter | Type       | Description    |
+| :-------- | :--------- |:------------- |
+| _id | `String` |  Item ObjectId as string (<._id>) |
+| data | `Object` |  Partial object properties to update item |
+
+
+Updates a existing item in the database  & `.items` array
+
+
+*Returns*   `undefined`   
+
+
+<!-- LINKS -->
+<!-- LINKS -->
+
+#### .find(query); 
+
+| Parameter | Type       | Description    |
+| :-------- | :--------- |:------------- |
+| query | `Object` |  key/value pair to search for in `.items` array |
+
+
+Find matching item with key/values 
+
+
+*Returns*   `undefined`   
+
+
+<!-- LINKS -->
+<!-- LINKS -->
+
+<!-- METHODS -->

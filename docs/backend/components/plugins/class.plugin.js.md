@@ -1,6 +1,6 @@
 <div class="mb-0">
     🔗 <a class="source-code" target="_blank"
-        href="https://github.com/OpenHausIO/backend/blob/dev/components/devices/class.device.js">class.plugin.js</a>
+        href="https://github.com/OpenHausIO/backend/blob/dev&#x2F;components&#x2F;plugins&#x2F;class.plugin.js">class.plugin.js</a>
 </div>
 <hr style="margin: 0 !important" />
 
@@ -54,7 +54,7 @@ Represents a single plugin item that is stored in the components `.items` array.
 | :-------- | :--------- |:------------- |
 
 
-Start&#x2F;boot installed plugin
+Start/boot installed plugin
 
 *Returns*   `undefined`   
 
