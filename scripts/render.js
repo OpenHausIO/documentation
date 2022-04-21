@@ -1,4 +1,5 @@
 const fs = require("fs");
+const path = require("path");
 const { parse } = require('comment-parser');
 const Mustache = require("mustache");
 const util = require("util");
@@ -9,7 +10,7 @@ const { URL } = require("url")
 module.exports = (input, output, data) => {
 
     const source = fs.readFileSync(input, "utf8");
-    const template = fs.readFileSync("../templates/class.mst", "utf8");
+    const template = fs.readFileSync(path.resolve(process.cwd(), "templates/main.mst"), "utf8");
 
 
     const parsed = parse(source, {
@@ -17,30 +18,9 @@ module.exports = (input, output, data) => {
     });
 
 
-    /*
-    const parsed = parse(source, {
-        spacing: (lines) => {
-
-            return lines.map((tokens) => {
-
-                console.log(tokens);
-
-            });
-
-            /*
-            return lines.map((tokens) => {
-                return String(tokens.description).trim();
-            }).filter(description => description !== '').join(' ');
-            *
-
-
-        }
-    });
-    */
-
-
     const fillings = Object.assign({
         filename: "", // "class.base.js"
+        filepath: input.replace(process.env.SOURCE_BACKEND, ""),
         className: "",
         description: "",
         properties: [],
@@ -101,7 +81,7 @@ module.exports = (input, output, data) => {
 
                     fillings.events.push({
                         name,
-                        description
+                        description: description.trim()
                     });
 
                 } else if (tag === "class") {
@@ -174,7 +154,7 @@ module.exports = (input, output, data) => {
                 examples: [],
                 returns: [],
                 links: []
-            }
+            };
 
             block.tags.forEach(({ tag, name, type, optional, description }, i, arr) => {
                 if (tag === "function") {
@@ -247,6 +227,14 @@ module.exports = (input, output, data) => {
     //console.log(fillings.methods[0])
 
     let rendered = Mustache.render(template, fillings);
+
+    // create folder structure if it does not exists
+    if (!fs.existsSync(path.dirname(output))) {
+        fs.mkdirSync(path.dirname(output), {
+            recursive: true
+        });
+    }
+
     //console.log(rendered)
     fs.writeFileSync(output, rendered);
 

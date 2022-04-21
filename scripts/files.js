@@ -1,74 +1,71 @@
-const glob = require("glob");
 const path = require("path");
 const fs = require("fs");
 
-const render = require("./render.js");
+const Mustache = require("mustache");
+
+const globber = require("./globber.js");
 
 const components = new Map();
-
-glob("../tmp/backend/components/**/*.js", (err, files) => {
-    if (err) {
-
-        console.error(err);
-        process.exit(1);
-
-    } else {
-
-        files.forEach((file) => {
-
-            // resolve to absolut path
-            file = path.resolve(__dirname, file);
-
-            let filename = path.basename(file);
-            let target = path.dirname(file);
-            let folder = path.basename(target);
-
-            if (!components.has(folder)) {
-                components.set(folder, new Set());
-            }
-
-            // swamp tmp with out
-            target = target.replace("tmp", "docs");
-
-            /*
-            if (!fs.existsSync(target)) {
-                console.log("Create target dir: ", target)
-                fs.mkdirSync(target, {
-                    recursive: true
-                });
-            }
-            */
-
-            //console.log(target)
+const helper = new Map();
+const system = new Map();
 
 
+Promise.all([
+    globber("components/**/*.js", components),
+    globber("helper/**/*.js", helper),
+    globber("system/**/*.js", system),
+]).then(() => {
 
-            if (filename === "index.js") {
+    let comps = [];
+    let systems = [];
+    let helpers = [];
 
-                target = path.join(target, `README.md`);
-                components.get(folder).add(target);
-
-                render(file, target, {
-                    filename
-                });
-
-            } else {
-
-                target = path.join(target, `${filename}.md`);
-                components.get(folder).add(target);
-
-                render(file, target, {
-                    filename
-                });
-
-            }
-
-
-
+    for (let [key, value] of components) {
+        comps.push({
+            title: key[0].toUpperCase() + key.substr(1),
+            path: key,
+            files: Array.from(value)
         });
-
-        // GENERATE FROM MAP SIDEBAR CONTENTS
-        console.log(components)
-
     }
+
+    for (let [key, value] of system) {
+        systems.push({
+            title: key[0].toUpperCase() + key.substr(1),
+            path: key,
+            files: Array.from(value)
+        });
+    }
+
+    for (let [key, value] of helper) {
+        helpers.push({
+            title: key[0].toUpperCase() + key.substr(1),
+            path: key,
+            files: Array.from(value)
+        });
+    }
+
+    const template = fs.readFileSync(path.resolve(process.cwd(), "templates/_sidebar.mst"), "utf8");
+
+    const output = Mustache.render(template, {
+        backend: {
+            components: comps,
+            helper: helpers,
+            system: systems
+        }
+    }, {
+        administration: fs.readFileSync(path.resolve(process.cwd(), "templates/partials/nav.administration.mst"), "utf8"),
+        backend: fs.readFileSync(path.resolve(process.cwd(), "templates/partials/nav.backend.mst"), "utf8"),
+        frontend: fs.readFileSync(path.resolve(process.cwd(), "templates/partials/nav.frontend.mst"), "utf8"),
+        //connector: fs.readFileSync(path.resolve(process.cwd(), "templates/partials/nav.connector.mst"), "utf8")
+    });
+
+    //console.log(output)
+
+    fs.writeFileSync(path.resolve(process.cwd(), "docs/_sidebar.md"), output);
+
+}).catch((err) => {
+
+    console.error(err);
+    process.exit(1);
+
 });
