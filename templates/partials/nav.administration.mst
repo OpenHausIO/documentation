@@ -1,0 +1,5 @@
+* __Administration__
+  * [Installation](administration/installation.md)
+  * [Configuration](administration/configuration.md)
+  * [Best practice](administration/best-practice.md)
+  * [Docker Setup](administration/docker-setup.md)
