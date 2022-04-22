@@ -104,8 +104,8 @@ dist
 .tern-port
 
 # temp files
-tmp/
+tmp/backend
+tmp/frontend
 
 # testing folder
 out
-tmp/backend

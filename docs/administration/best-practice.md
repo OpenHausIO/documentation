@@ -3,6 +3,7 @@
 
 #### Running the backend behind nginx
 Visual representation
+
 ![](../img/157492467-bdcafc6d-06f4-4add-9c69-4fbd6b4169d8.jpg)
 
 1) Install the nginx webserver
@@ -43,9 +44,6 @@ server {
 }
 ```
 
-!> Be sure to create the root folder `/opt/OpenHaus/frontend` if you dont serve the frontend<br />
-This is not neccesary if you symlink the latest version of the frontend (Analog to the backend installation process)
-
 1) Enable autostart
 ```bash
 systemctl enable --now nginx
@@ -54,5 +52,5 @@ systemctl status nginx
 
 4) Test the configuration
 ```bash
-curl -v http://127.0.0.1
+curl http://127.0.0.1
 ```

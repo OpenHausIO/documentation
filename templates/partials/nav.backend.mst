@@ -17,10 +17,17 @@
 
   * [__System__](backend/system/)
     {{#backend.system}} 
+    {{#path}}
     * [__{{title}}__](backend/system/{{path}}/)
         {{#files}}
       * [{{.}}](backend/system/{{path}}/{{.}})
         {{/files}}
+    {{/path}}
+    {{^path}}
+      {{#files}}
+    * [{{.}}](backend/system/{{.}})
+      {{/files}}
+    {{/path}}
     {{/backend.system}}
 
 

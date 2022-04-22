@@ -29,11 +29,25 @@ Promise.all([
     }
 
     for (let [key, value] of system) {
-        systems.push({
-            title: key[0].toUpperCase() + key.substr(1),
-            path: key,
-            files: Array.from(value)
-        });
+        if (key === "system") {
+
+            // this are for files directly in the system folder
+            // to render they correctly, this liktle hack is needed
+            systems.push({
+                title: null,
+                path: null,
+                files: Array.from(value)
+            });
+
+        } else {
+
+            systems.push({
+                title: key[0].toUpperCase() + key.substr(1),
+                path: key,
+                files: Array.from(value)
+            });
+
+        }
     }
 
     for (let [key, value] of helper) {
@@ -55,7 +69,7 @@ Promise.all([
     }, {
         administration: fs.readFileSync(path.resolve(process.cwd(), "templates/partials/nav.administration.mst"), "utf8"),
         backend: fs.readFileSync(path.resolve(process.cwd(), "templates/partials/nav.backend.mst"), "utf8"),
-        frontend: fs.readFileSync(path.resolve(process.cwd(), "templates/partials/nav.frontend.mst"), "utf8"),
+        //frontend: fs.readFileSync(path.resolve(process.cwd(), "templates/partials/nav.frontend.mst"), "utf8"),
         //connector: fs.readFileSync(path.resolve(process.cwd(), "templates/partials/nav.connector.mst"), "utf8")
     });
 

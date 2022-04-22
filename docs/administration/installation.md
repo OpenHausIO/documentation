@@ -93,11 +93,6 @@ systemctl status open-haus
 ```bash
 curl -v http://127.0.0.1:8080/api/
 ```
-With a simple `curl` we can verify that the backend is up & running:
-
-```bash
-...
-```
 
 ### Further steps:
 - [Configuration](configuration.md)
