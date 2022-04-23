@@ -7,30 +7,13 @@
 <!-- CLASS -->
 
 <!-- GENERAL -->
-<!-- GENERAL -->
-
-<!-- PARAMETER -->
-<!-- PARAMETER -->
-
-<!-- PROPERTIES -->
-<!-- PROPERTIES -->
-
-<!-- EVENTS -->
-<!-- EVENTS -->
-
-<!-- EXAMPLES -->
-<!-- EXAMPLES -->
-
-<!-- LINKS -->
-<!-- LINKS -->
-
 <!-- CLASS -->
 
 
 
 <!-- METHODS -->
 ### Methods:
-#### .extend(target, sources); 
+####  .extend(target, sources);  
 
 | Parameter | Type       | Description    |
 | :-------- | :--------- |:------------- |
@@ -47,3 +30,8 @@
 <!-- LINKS -->
 
 <!-- METHODS -->
+
+
+
+<!-- DESCRIPTION -->
+<!-- DESCRIPTION -->

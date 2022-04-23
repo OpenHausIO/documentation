@@ -7,30 +7,13 @@
 <!-- CLASS -->
 
 <!-- GENERAL -->
-<!-- GENERAL -->
-
-<!-- PARAMETER -->
-<!-- PARAMETER -->
-
-<!-- PROPERTIES -->
-<!-- PROPERTIES -->
-
-<!-- EVENTS -->
-<!-- EVENTS -->
-
-<!-- EXAMPLES -->
-<!-- EXAMPLES -->
-
-<!-- LINKS -->
-<!-- LINKS -->
-
 <!-- CLASS -->
 
 
 
 <!-- METHODS -->
 ### Methods:
-#### .encode(str, rules); 
+####  .encode(str, rules);  
 
 | Parameter | Type       | Description    |
 | :-------- | :--------- |:------------- |
@@ -55,7 +38,7 @@ encode("<harmful> ../../etc/passwd string"); // &lt;harmful&gt; ..&#x2F;..&#x2F;
 <!-- LINKS -->
 <!-- LINKS -->
 
-#### .decode(str, rules); 
+####  .decode(str, rules);  
 
 | Parameter | Type       | Description    |
 | :-------- | :--------- |:------------- |
@@ -81,3 +64,8 @@ decode("&gt; Hello World &lt;"); // > Hello World <
 <!-- LINKS -->
 
 <!-- METHODS -->
+
+
+
+<!-- DESCRIPTION -->
+<!-- DESCRIPTION -->

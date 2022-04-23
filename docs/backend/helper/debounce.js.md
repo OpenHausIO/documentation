@@ -7,30 +7,13 @@
 <!-- CLASS -->
 
 <!-- GENERAL -->
-<!-- GENERAL -->
-
-<!-- PARAMETER -->
-<!-- PARAMETER -->
-
-<!-- PROPERTIES -->
-<!-- PROPERTIES -->
-
-<!-- EVENTS -->
-<!-- EVENTS -->
-
-<!-- EXAMPLES -->
-<!-- EXAMPLES -->
-
-<!-- LINKS -->
-<!-- LINKS -->
-
 <!-- CLASS -->
 
 
 
 <!-- METHODS -->
 ### Methods:
-#### .debounce(fnc, wait, immediate); 
+####  .debounce(fnc, wait, immediate);  
 
 | Parameter | Type       | Description    |
 | :-------- | :--------- |:------------- |
@@ -59,3 +42,8 @@ setTimeout(caller, 500);
 <!-- LINKS -->
 
 <!-- METHODS -->
+
+
+
+<!-- DESCRIPTION -->
+<!-- DESCRIPTION -->

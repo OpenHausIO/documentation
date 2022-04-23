@@ -60,7 +60,7 @@ Parent class for components which provides hookable, event emitting methods:
 
 <!-- METHODS -->
 ### Methods:
-#### .add(data); 
+####  .add(data);  
 
 | Parameter | Type       | Description    |
 | :-------- | :--------- |:------------- |
@@ -76,7 +76,7 @@ Adds a new item that matches the component schema
 <!-- LINKS -->
 <!-- LINKS -->
 
-#### .get(_id); 
+####  .get(_id);  
 
 | Parameter | Type       | Description    |
 | :-------- | :--------- |:------------- |
@@ -92,7 +92,7 @@ Returns a item that matches the <_id> property
 <!-- LINKS -->
 <!-- LINKS -->
 
-#### .remove(_id); 
+####  .remove(_id);  
 
 | Parameter | Type       | Description    |
 | :-------- | :--------- |:------------- |
@@ -108,7 +108,7 @@ Removes a item from the database and the `.items` array
 <!-- LINKS -->
 <!-- LINKS -->
 
-#### .update(_id, data); 
+####  .update(_id, data);  
 
 | Parameter | Type       | Description    |
 | :-------- | :--------- |:------------- |
@@ -125,7 +125,7 @@ Updates a existing item in the database  & `.items` array
 <!-- LINKS -->
 <!-- LINKS -->
 
-#### .find(query); 
+####  .find(query);  
 
 | Parameter | Type       | Description    |
 | :-------- | :--------- |:------------- |
@@ -142,3 +142,8 @@ Find matching item with key/values
 <!-- LINKS -->
 
 <!-- METHODS -->
+
+
+
+<!-- DESCRIPTION -->
+<!-- DESCRIPTION -->

@@ -74,7 +74,7 @@ middleware.start({bar: true}, (obj) => {
 
 <!-- METHODS -->
 ### Methods:
-#### .start(); 
+####  .start();  
 
 | Parameter | Type       | Description    |
 | :-------- | :--------- |:------------- |
@@ -103,7 +103,7 @@ start("A", "B", "C", (a, b, c) => {
 <!-- LINKS -->
 <!-- LINKS -->
 
-#### .use(fn); 
+####  .use(fn);  
 
 | Parameter | Type       | Description    |
 | :-------- | :--------- |:------------- |
@@ -138,7 +138,7 @@ use((A, B, C, next) => {
 <!-- LINKS -->
 <!-- LINKS -->
 
-#### .catch(fn); 
+####  .catch(fn);  
 
 | Parameter | Type       | Description    |
 | :-------- | :--------- |:------------- |
@@ -164,3 +164,8 @@ catch((err) => {
 <!-- LINKS -->
 
 <!-- METHODS -->
+
+
+
+<!-- DESCRIPTION -->
+<!-- DESCRIPTION -->

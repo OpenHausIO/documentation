@@ -7,30 +7,13 @@
 <!-- CLASS -->
 
 <!-- GENERAL -->
-<!-- GENERAL -->
-
-<!-- PARAMETER -->
-<!-- PARAMETER -->
-
-<!-- PROPERTIES -->
-<!-- PROPERTIES -->
-
-<!-- EVENTS -->
-<!-- EVENTS -->
-
-<!-- EXAMPLES -->
-<!-- EXAMPLES -->
-
-<!-- LINKS -->
-<!-- LINKS -->
-
 <!-- CLASS -->
 
 
 
 <!-- METHODS -->
 ### Methods:
-#### .mixins(objs, options, options.transparent, options.setPrototype, lookup); 
+####  .mixins(objs, options, options.transparent, options.setPrototype, lookup);  
 
 | Parameter | Type       | Description    |
 | :-------- | :--------- |:------------- |
@@ -51,3 +34,8 @@ Mix/merge a bunch of objects
 <!-- LINKS -->
 
 <!-- METHODS -->
+
+
+
+<!-- DESCRIPTION -->
+<!-- DESCRIPTION -->

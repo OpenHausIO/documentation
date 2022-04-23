@@ -7,30 +7,13 @@
 <!-- CLASS -->
 
 <!-- GENERAL -->
-<!-- GENERAL -->
-
-<!-- PARAMETER -->
-<!-- PARAMETER -->
-
-<!-- PROPERTIES -->
-<!-- PROPERTIES -->
-
-<!-- EVENTS -->
-<!-- EVENTS -->
-
-<!-- EXAMPLES -->
-<!-- EXAMPLES -->
-
-<!-- LINKS -->
-<!-- LINKS -->
-
 <!-- CLASS -->
 
 
 
 <!-- METHODS -->
 ### Methods:
-#### .iterate(data, cb); 
+####  .iterate(data, cb);  
 
 | Parameter | Type       | Description    |
 | :-------- | :--------- |:------------- |
@@ -87,3 +70,8 @@ console.log(modified)
 <!-- LINKS -->
 
 <!-- METHODS -->
+
+
+
+<!-- DESCRIPTION -->
+<!-- DESCRIPTION -->

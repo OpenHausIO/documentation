@@ -45,7 +45,7 @@ Class description
 
 <!-- METHODS -->
 ### Methods:
-#### ._defineMethod(name, executor); 
+####  ._defineMethod(name, executor);  
 
 | Parameter | Type       | Description    |
 | :-------- | :--------- |:------------- |
@@ -63,3 +63,8 @@ Defines a hookable/event emitting method on component scope
 <!-- LINKS -->
 
 <!-- METHODS -->
+
+
+
+<!-- DESCRIPTION -->
+<!-- DESCRIPTION -->

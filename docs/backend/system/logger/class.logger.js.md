@@ -7,9 +7,21 @@
 <!-- CLASS -->
 
 <!-- GENERAL -->
+## `class` Logger 
+### Description:
+
+Logger class which create a custom logger object
+
 <!-- GENERAL -->
 
 <!-- PARAMETER -->
+#### Parameter:
+| Parameter | Type       | Description    |
+| :-------- | :--------- |:------------- |
+| options | `Object` |  Options object |
+| options.level | `String` |  Logging level: `error`, `warn`, `info`, `debug`, `verbose`, `trace` |
+| options.name | `String` |  Logger name that is shown in messages |
+| options.streams | `Array` |  Array of streams where to write data |
 <!-- PARAMETER -->
 
 <!-- PROPERTIES -->
@@ -30,7 +42,7 @@
 
 <!-- METHODS -->
 ### Methods:
-#### .tracer(desc, count, cb); 
+####  .tracer(desc, count, cb);  
 
 | Parameter | Type       | Description    |
 | :-------- | :--------- |:------------- |
@@ -69,3 +81,8 @@ tracer("Baz");
 <!-- LINKS -->
 
 <!-- METHODS -->
+
+
+
+<!-- DESCRIPTION -->
+<!-- DESCRIPTION -->

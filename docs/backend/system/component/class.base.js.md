@@ -50,7 +50,7 @@ Provides basic properties & handle initialization phase.
 
 <!-- METHODS -->
 ### Methods:
-#### .init(cb); 
+####  .init(cb);  
 
 | Parameter | Type       | Description    |
 | :-------- | :--------- |:------------- |
@@ -67,3 +67,8 @@ Init the component, like fill the `.items` array
 <!-- LINKS -->
 
 <!-- METHODS -->
+
+
+
+<!-- DESCRIPTION -->
+<!-- DESCRIPTION -->

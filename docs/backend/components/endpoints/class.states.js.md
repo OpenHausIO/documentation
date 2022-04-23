@@ -39,7 +39,7 @@ Houses <State> classes, just like a regular array, with custom methods to set va
 
 <!-- METHODS -->
 ### Methods:
-#### .setValue(_id, value, cb); 
+####  .setValue(_id, value, cb);  
 
 | Parameter | Type       | Description    |
 | :-------- | :--------- |:------------- |
@@ -95,3 +95,8 @@ setValue("62557fbd1956de67da6cf9e7", true, (err) => {
 <!-- LINKS -->
 
 <!-- METHODS -->
+
+
+
+<!-- DESCRIPTION -->
+<!-- DESCRIPTION -->

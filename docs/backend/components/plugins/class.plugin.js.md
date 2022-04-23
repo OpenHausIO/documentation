@@ -48,7 +48,7 @@ Represents a single plugin item that is stored in the components `.items` array.
 
 <!-- METHODS -->
 ### Methods:
-#### .boot(); 
+####  .boot();  
 
 | Parameter | Type       | Description    |
 | :-------- | :--------- |:------------- |
@@ -63,3 +63,8 @@ Start/boot installed plugin
 <!-- LINKS -->
 
 <!-- METHODS -->
+
+
+
+<!-- DESCRIPTION -->
+<!-- DESCRIPTION -->

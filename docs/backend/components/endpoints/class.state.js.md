@@ -52,7 +52,7 @@ E.g "Power" state, or "Volume"
 
 <!-- METHODS -->
 ### Methods:
-#### .schema();  `static` 
+####  .schema();  `static`  
 
 | Parameter | Type       | Description    |
 | :-------- | :--------- |:------------- |
@@ -70,7 +70,7 @@ State schema, see properties above.
 - [https://joi.dev/api/?v=17.6.0#anyvalidatevalue-options](https://joi.dev/api/?v=17.6.0#anyvalidatevalue-options)<br />
 <!-- LINKS -->
 
-#### .validate(obj);  `static` 
+####  .validate(obj);  `static`  
 
 | Parameter | Type       | Description    |
 | :-------- | :--------- |:------------- |
@@ -90,3 +90,8 @@ Validate schema object
 <!-- LINKS -->
 
 <!-- METHODS -->
+
+
+
+<!-- DESCRIPTION -->
+<!-- DESCRIPTION -->

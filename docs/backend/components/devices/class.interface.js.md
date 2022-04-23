@@ -51,7 +51,7 @@ Implements a interface item, that hides a duplex stream in it, to read/write dat
 
 <!-- METHODS -->
 ### Methods:
-#### .schema();  `static` 
+####  .schema();  `static`  
 
 | Parameter | Type       | Description    |
 | :-------- | :--------- |:------------- |
@@ -66,7 +66,7 @@ Interface schema
 <!-- LINKS -->
 <!-- LINKS -->
 
-#### .httpAgent(options); 
+####  .httpAgent(options);  
 
 | Parameter | Type       | Description    |
 | :-------- | :--------- |:------------- |
@@ -86,3 +86,8 @@ Creates a custom http agent which use the underalying interfaceStream to forward
 <!-- LINKS -->
 
 <!-- METHODS -->
+
+
+
+<!-- DESCRIPTION -->
+<!-- DESCRIPTION -->

@@ -46,3 +46,8 @@ Represents a room item
 
 <!-- METHODS -->
 <!-- METHODS -->
+
+
+
+<!-- DESCRIPTION -->
+<!-- DESCRIPTION -->

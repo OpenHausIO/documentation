@@ -44,7 +44,7 @@ Houses <Command> classes, just like a regular array, with custom methods
 
 <!-- METHODS -->
 ### Methods:
-#### .execute(_id, params, cb); 
+####  .execute(_id, params, cb);  
 
 | Parameter | Type       | Description    |
 | :-------- | :--------- |:------------- |
@@ -62,7 +62,7 @@ Execute command
 <!-- LINKS -->
 <!-- LINKS -->
 
-#### .handle(aliases, handler, cb); 
+####  .handle(aliases, handler, cb);  
 
 | Parameter | Type       | Description    |
 | :-------- | :--------- |:------------- |
@@ -81,3 +81,8 @@ Set custom command handler
 <!-- LINKS -->
 
 <!-- METHODS -->
+
+
+
+<!-- DESCRIPTION -->
+<!-- DESCRIPTION -->

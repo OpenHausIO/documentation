@@ -58,7 +58,39 @@ hooks.trigger("foo", {}, (err, data) => {
 
 <!-- METHODS -->
 ### Methods:
-#### ._namespace(name); 
+####  `DEPRECATED`  .WS_REQUEST(data);  `static`  
+
+| Parameter | Type       | Description    |
+| :-------- | :--------- |:------------- |
+| data | `obj` |   |
+
+
+Create request message object for websocket hooks
+
+
+*Returns*  `Object`    request object
+
+
+<!-- LINKS -->
+<!-- LINKS -->
+
+####  `DEPRECATED`  .WS_RESPONSE(data);  `static`  
+
+| Parameter | Type       | Description    |
+| :-------- | :--------- |:------------- |
+| data | `*` |   |
+
+
+Create response message object for websocket hooks
+
+
+*Returns*  `Object`    response object
+
+
+<!-- LINKS -->
+<!-- LINKS -->
+
+####  ._namespace(name);  
 
 | Parameter | Type       | Description    |
 | :-------- | :--------- |:------------- |
@@ -74,7 +106,7 @@ Create or returns a new namespace
 <!-- LINKS -->
 <!-- LINKS -->
 
-#### ._handleEventType(type, name, cb); 
+####  ._handleEventType(type, name, cb);  
 
 | Parameter | Type       | Description    |
 | :-------- | :--------- |:------------- |
@@ -92,7 +124,7 @@ Handle event type for namespace middleware
 <!-- LINKS -->
 <!-- LINKS -->
 
-#### .pre(name, cb); 
+####  .pre(name, cb);  
 
 | Parameter | Type       | Description    |
 | :-------- | :--------- |:------------- |
@@ -117,7 +149,7 @@ pre("foo", (data, next) => {
 <!-- LINKS -->
 <!-- LINKS -->
 
-#### .post(name, cb); 
+####  .post(name, cb);  
 
 | Parameter | Type       | Description    |
 | :-------- | :--------- |:------------- |
@@ -142,7 +174,7 @@ post("foo", (data, next) => {
 <!-- LINKS -->
 <!-- LINKS -->
 
-#### .trigger(name, args); 
+####  .trigger(name, args);  
 
 | Parameter | Type       | Description    |
 | :-------- | :--------- |:------------- |
@@ -167,3 +199,8 @@ trigger("foo", {obj: true}, (err, obj) => {
 <!-- LINKS -->
 
 <!-- METHODS -->
+
+
+
+<!-- DESCRIPTION -->
+<!-- DESCRIPTION -->

@@ -51,7 +51,7 @@ Represents a single secret that wraps encrypt/decrypt methods
 
 <!-- METHODS -->
 ### Methods:
-#### .encrypt(data, cb); 
+####  .encrypt(data, cb);  
 
 | Parameter | Type       | Description    |
 | :-------- | :--------- |:------------- |
@@ -68,7 +68,7 @@ Encrypt on or more fields
 <!-- LINKS -->
 <!-- LINKS -->
 
-#### .decrypt(cb); 
+####  .decrypt(cb);  
 
 | Parameter | Type       | Description    |
 | :-------- | :--------- |:------------- |
@@ -85,3 +85,8 @@ Decrypt all exisiting fields
 <!-- LINKS -->
 
 <!-- METHODS -->
+
+
+
+<!-- DESCRIPTION -->
+<!-- DESCRIPTION -->

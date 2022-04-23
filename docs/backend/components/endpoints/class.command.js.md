@@ -96,7 +96,7 @@ Single command
 
 <!-- METHODS -->
 ### Methods:
-#### .schema();  `static` 
+####  .schema();  `static`  
 
 | Parameter | Type       | Description    |
 | :-------- | :--------- |:------------- |
@@ -111,7 +111,7 @@ Command schema
 <!-- LINKS -->
 <!-- LINKS -->
 
-#### .validate(obj);  `static` 
+####  .validate(obj);  `static`  
 
 | Parameter | Type       | Description    |
 | :-------- | :--------- |:------------- |
@@ -130,3 +130,8 @@ Validate schema object
 <!-- LINKS -->
 
 <!-- METHODS -->
+
+
+
+<!-- DESCRIPTION -->
+<!-- DESCRIPTION -->

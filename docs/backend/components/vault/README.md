@@ -55,7 +55,7 @@ C_VAULT.events.on("add", (item) => {
 
 <!-- METHODS -->
 ### Methods:
-#### .encrypt(identifier, fields); 
+####  .encrypt(identifier, fields);  
 
 | Parameter | Type       | Description    |
 | :-------- | :--------- |:------------- |
@@ -72,7 +72,7 @@ Encrypt a vault
 <!-- LINKS -->
 <!-- LINKS -->
 
-#### .decrypt(identifier, cb); 
+####  .decrypt(identifier, cb);  
 
 | Parameter | Type       | Description    |
 | :-------- | :--------- |:------------- |
@@ -91,3 +91,8 @@ Decrypt a vault
 <!-- LINKS -->
 
 <!-- METHODS -->
+
+
+
+<!-- DESCRIPTION -->
+<!-- DESCRIPTION -->

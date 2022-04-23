@@ -41,3 +41,8 @@ Create a encode/decode data flow with adapters
 
 <!-- METHODS -->
 <!-- METHODS -->
+
+
+
+<!-- DESCRIPTION -->
+<!-- DESCRIPTION -->
