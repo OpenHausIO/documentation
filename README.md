@@ -111,6 +111,7 @@ The `@extends` tag support links to other documentation: Either a full link, or 
 | `@link`     | External link to something                                |
 | `@returns`  | Describe what a function returns                          |
 | `@emits`    | Events are documented                                     |
+| `@example`  | Document example code                                     |
 
 For a better understanding, take a look on the jsdoc specification: https://jsdoc.app
 
@@ -131,7 +132,7 @@ For a better understanding, take a look on the jsdoc specification: https://jsdo
  * 
  * @emits What ever is emitted
  * 
- * @examples 
+ * @example 
  * ```js
  * ...
  * ```
