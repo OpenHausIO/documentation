@@ -11,7 +11,6 @@
 ## `class` {{className}} {{#extends}} `extends` {{#link}} [{{{name}}}]({{{link}}}) {{/link}}{{^link}} {{name}} {{/link}} {{/extends}}
 ### Description:
 {{{description}}}
-{{/className}}
 <!-- GENERAL -->
 
 <!-- PARAMETER -->
@@ -65,6 +64,7 @@
 {{/links.length}}
 <!-- LINKS -->
 
+{{/className}}
 <!-- CLASS -->
 
 
@@ -73,7 +73,7 @@
 {{#methods.length}}
 ### Methods:
 {{#methods}}
-#### .{{name}}({{args}}); {{#static}} `static` {{/static}}
+#### {{#deprecated}} `DEPRECATED` {{/deprecated}} .{{name}}({{args}}); {{#static}} `static` {{/static}} 
 
 | Parameter | Type       | Description    |
 | :-------- | :--------- |:------------- |
@@ -104,3 +104,23 @@
 {{/methods}}
 {{/methods.length}}
 <!-- METHODS -->
+
+
+
+<!-- DESCRIPTION -->
+{{^className}}
+{{^methods.length}}
+
+### Description:
+{{{description}}}
+
+{{#examples.length}}
+##### Examples
+{{#examples}}
+    {{{.}}}
+{{/examples}}
+{{/examples.length}}
+
+{{/methods.length}}
+{{/className}}
+<!-- DESCRIPTION -->

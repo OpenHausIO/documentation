@@ -21,7 +21,7 @@ module.exports = (input, output, data) => {
     const fillings = Object.assign({
         filename: "", // "class.base.js"
         filepath: input.replace(process.env.SOURCE_BACKEND, ""),
-        className: "",
+        className: null,
         description: "",
         properties: [],
         parameter: [],
@@ -63,6 +63,7 @@ module.exports = (input, output, data) => {
         // check if block is a function documentation    
 
         if (block.tags.some(({ tag }) => { return tag === "class" })) {
+
             block.tags.forEach(({ tag, name, type, optional, description }, i, arr) => {
                 if (tag === "description") {
 
@@ -143,13 +144,13 @@ module.exports = (input, output, data) => {
                 }
             });
 
-
         } else if (block.tags.some(({ tag }) => { return tag === "function" })) {
 
 
             // method local variables
             let obj = {
                 static: false,
+                deprecated: false,
                 params: [],
                 examples: [],
                 returns: [],
@@ -203,6 +204,10 @@ module.exports = (input, output, data) => {
                         href: name.trim()
                     });
 
+                } else if (tag === "deprecated") {
+
+                    obj.deprecated = true;
+
                 } else {
 
                     console.error("> Unsporrted tag found in function declartion: %s, line: %d in %s", tag, arr[i].source[0].number, input);
@@ -215,13 +220,29 @@ module.exports = (input, output, data) => {
             fillings.methods.push(obj);
 
 
+        } else if (block.tags.some(({ tag }) => { return tag === "description" })) {
+
+            block.tags.forEach(({ tag, name, type, optional, description }, i, arr) => {
+                if (tag === "description") {
+
+                    fillings.description = description;
+
+                } else if (tag === "example") {
+
+                    fillings.examples.push(description);
+
+                }
+            });
+
         } else {
 
-            console.error("> Code block is neither a class nor a function declration: '%s'", arr[i].description, input);
+            console.error("> Code block is neither a class,function nor a documentation declration: '%s'", arr[i].description.trim(), input);
 
         }
 
     });
+
+
 
 
     //console.log(fillings.methods[0])
